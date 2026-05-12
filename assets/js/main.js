@@ -41,10 +41,11 @@ window.addEventListener('scroll', scrollActive);
 
 /* ===== TYPING ANIMATION ===== */
 const roles = [
+  'Software Engineer',
   'Full-Stack Developer',
   'Software Developer',
-  'Web Developer',
-  'Software Engineer'
+  
+  
 ];
 let roleIndex = 0, charIndex = 0, isDeleting = false;
 const typingEl = document.getElementById('typing');
@@ -72,6 +73,23 @@ function type() {
 }
 type();
 
+/* ===== EXPERIENCE DURATION ===== */
+document.querySelectorAll('[data-duration-start]').forEach(durationEl => {
+  const start = new Date(`${durationEl.dataset.durationStart}T00:00:00`);
+  const today = new Date();
+  start.setHours(0, 0, 0, 0);
+  today.setHours(0, 0, 0, 0);
+
+  let months = (today.getFullYear() - start.getFullYear()) * 12;
+  months += today.getMonth() - start.getMonth();
+  if (today.getDate() < start.getDate()) months -= 1;
+  months = Math.max(0, months);
+
+  durationEl.textContent = months
+    ? `${months} month${months === 1 ? '' : 's'}`
+    : 'Less than 1 month';
+});
+
 /* ===== SKILL BARS ANIMATION ===== */
 function animateBars(entries) {
   entries.forEach(entry => {
@@ -86,6 +104,106 @@ function animateBars(entries) {
 const skillsSection = document.querySelector('.skills');
 if (skillsSection) {
   new IntersectionObserver(animateBars, { threshold: 0.2 }).observe(skillsSection);
+}
+
+/* ===== CERTIFICATE CAROUSEL ===== */
+const certificateTrack = document.querySelector('.certificates__grid');
+const certificateCards = document.querySelectorAll('.certificate__card');
+const certificatePrev = document.querySelector('[data-certificate-prev]');
+const certificateNext = document.querySelector('[data-certificate-next]');
+const certificateDots = document.querySelector('.certificates__dots');
+const certificateCarousel = document.querySelector('.certificates');
+let certificateIndex = 0;
+let certificateTimer;
+
+function getVisibleCertificates() {
+  if (window.innerWidth <= 600) return 1;
+  if (window.innerWidth <= 900) return 2;
+  return 3;
+}
+
+function renderCertificateDots() {
+  if (!certificateDots) return;
+  const pages = Math.max(1, certificateCards.length - getVisibleCertificates() + 1);
+  certificateDots.innerHTML = '';
+  for (let i = 0; i < pages; i++) {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'certificates__dot';
+    dot.setAttribute('aria-label', `Go to certificate ${i + 1}`);
+    dot.addEventListener('click', () => {
+      certificateIndex = i;
+      updateCertificateCarousel();
+    });
+    certificateDots.appendChild(dot);
+  }
+}
+
+function updateCertificateCarousel() {
+  if (!certificateTrack || !certificateCards.length) return;
+  const visible = getVisibleCertificates();
+  const maxIndex = Math.max(0, certificateCards.length - visible);
+  certificateIndex = Math.min(certificateIndex, maxIndex);
+  const cardWidth = certificateCards[0].getBoundingClientRect().width;
+  const gap = parseFloat(getComputedStyle(certificateTrack).gap) || 0;
+  certificateTrack.style.transform = `translateX(-${certificateIndex * (cardWidth + gap)}px)`;
+
+  certificateDots?.querySelectorAll('.certificates__dot').forEach((dot, index) => {
+    dot.classList.toggle('active', index === certificateIndex);
+  });
+}
+
+function goToNextCertificate() {
+  const maxIndex = Math.max(0, certificateCards.length - getVisibleCertificates());
+  certificateIndex = certificateIndex === maxIndex ? 0 : certificateIndex + 1;
+  updateCertificateCarousel();
+}
+
+function startCertificateAutoplay() {
+  if (!certificateTrack || certificateCards.length <= getVisibleCertificates()) return;
+  stopCertificateAutoplay();
+  certificateTimer = setInterval(goToNextCertificate, 2000);
+}
+
+function stopCertificateAutoplay() {
+  if (certificateTimer) {
+    clearInterval(certificateTimer);
+    certificateTimer = null;
+  }
+}
+
+function restartCertificateAutoplay() {
+  stopCertificateAutoplay();
+  startCertificateAutoplay();
+}
+
+if (certificateTrack && certificateCards.length) {
+  renderCertificateDots();
+  updateCertificateCarousel();
+  startCertificateAutoplay();
+
+  certificatePrev?.addEventListener('click', () => {
+    const maxIndex = Math.max(0, certificateCards.length - getVisibleCertificates());
+    certificateIndex = certificateIndex === 0 ? maxIndex : certificateIndex - 1;
+    updateCertificateCarousel();
+    restartCertificateAutoplay();
+  });
+
+  certificateNext?.addEventListener('click', () => {
+    goToNextCertificate();
+    restartCertificateAutoplay();
+  });
+
+  certificateCarousel?.addEventListener('mouseenter', stopCertificateAutoplay);
+  certificateCarousel?.addEventListener('mouseleave', startCertificateAutoplay);
+  certificateCarousel?.addEventListener('focusin', stopCertificateAutoplay);
+  certificateCarousel?.addEventListener('focusout', startCertificateAutoplay);
+
+  window.addEventListener('resize', () => {
+    renderCertificateDots();
+    updateCertificateCarousel();
+    restartCertificateAutoplay();
+  });
 }
 
 /* ===== SCROLL REVEAL ===== */

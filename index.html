@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dhilshan W.T — Software Engineer</title>
+  <title>W.T Dhilshan - Software Engineer</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 </head>
@@ -13,11 +13,12 @@
 
   <header class="l-header">
     <nav class="nav bd-grid">
-      <a href="#home" class="nav__logo">Dhilshan<span>.</span></a>
+      <a href="#home" class="nav__logo">Dhilshan<span>.WT</span></a>
       <div class="nav__menu" id="nav-menu">
         <ul class="nav__list">
           <li><a href="#home" class="nav__link active">Home</a></li>
           <li><a href="#about" class="nav__link">About</a></li>
+          <li><a href="#experience" class="nav__link">Experience</a></li>
           <li><a href="#education" class="nav__link">Education</a></li>
           <li><a href="#skills" class="nav__link">Skills</a></li>
           <li><a href="#work" class="nav__link">Works</a></li>
@@ -32,7 +33,6 @@
 
     <section class="home bd-grid" id="home">
       <div class="home__data">
-        <p class="home__eyebrow reveal">Software Engineer</p>
         <h1 class="home__name reveal reveal-d1">W.T.<br><span>Dhilshan</span></h1>
         <h2 class="home__role reveal reveal-d2"><span id="typing"></span><span class="typing-cursor"></span></h2>
         <p class="home__desc reveal reveal-d3">
@@ -90,13 +90,13 @@
           <p class="section-label">About Me</p>
           <h2 class="section-title">Turning ideas into<br><span>working software</span></h2>
           <p class="about__text">
-            I'm W.T. Dhilshan — a Software Engineering student based in Trincomalee, Sri Lanka,
+            I'm W.T. Dhilshan, a Software Engineering student based in Trincomalee, Sri Lanka,
             currently pursuing my BSc in Computing Software Engineering at Kingston University (UK), delivered through
             ESOFT Metro Campus.
             I hold a Pearson BTEC Level 5 HND in Computing (Software Engineering), completed in early 2026.
           </p>
           <p class="about__text">
-            I've built full-stack applications from scratch — from normalised PostgreSQL schemas and
+            I've built full-stack applications from scratch, from normalised PostgreSQL schemas and
             JWT-secured REST APIs to responsive React UIs. I'm deeply interested in clean architecture,
             developer tooling, and building things that users genuinely enjoy. Beyond code, I'm drawn
             to graphic design, photography, and pushing at the edges of what technology can do.
@@ -110,6 +110,51 @@
             <span class="about__lang">Tamil</span>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="experience section" id="experience">
+      <div class="bd-grid">
+        <p class="section-label reveal">Experience</p>
+        <h2 class="section-title reveal reveal-d1">Work <span>Background</span></h2>
+        <article class="experience__card reveal reveal-d2">
+          <div class="experience__header">
+            <div class="experience__identity">
+              <div class="experience__logo">
+                <img src="assets/img/Company_Logo.png" alt="MagneX Solutions logo" />
+              </div>
+              <div>
+                <p class="experience__type">Internship</p>
+                <h3 class="experience__role">Software Engineer Intern</h3>
+                <p class="experience__company">Magnex Solutions</p>
+              </div>
+            </div>
+            <div class="experience__meta">
+              <span><i class="bx bx-map"></i> Colombo, Sri Lanka</span>
+              <span><i class="bx bx-calendar"></i> May 2026 - Present</span>
+              <span><i class="bx bx-time-five"></i> <span data-duration-start="2026-05-01">Updating...</span></span>
+            </div>
+          </div>
+          <p class="experience__desc">
+            Currently assisting in the development of the REPOS website using modern full-stack technologies.
+          </p>
+          <ul class="experience__list">
+            <li>Contributing to frontend development using React.js to build responsive and user-friendly interfaces.</li>
+            <li>Assisting with backend development using Node.js and API integration.</li>
+            <li>Working with PostgreSQL for database management and data handling.</li>
+            <li>Collaborating with the development team on feature implementation, debugging, and system improvements.</li>
+            <li>Applying clean coding practices, Object-Oriented Programming (OOP), and modern web development principles.</li>
+            <li>Gaining hands-on experience in full-stack application development and real-world software engineering workflows.</li>
+          </ul>
+          <div class="experience__tags">
+            <span>React.js</span>
+            <span>Node.js</span>
+            <span>PostgreSQL</span>
+            <span>API Integration</span>
+            <span>OOP</span>
+            <span>Full-Stack Development</span>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -163,6 +208,105 @@
             </div>
           </li>
         </ul>
+
+        <div class="certificates reveal reveal-d3">
+          <div class="certificates__header">
+            <div>
+              <p class="section-label">Certificates</p>
+              <h3 class="certificates__title">Online <span>Certificates</span></h3>
+            </div>
+            <div class="certificates__controls">
+              <button class="certificates__btn" type="button" aria-label="Previous certificate" data-certificate-prev>
+                <i class="bx bx-chevron-left"></i>
+              </button>
+              <button class="certificates__btn" type="button" aria-label="Next certificate" data-certificate-next>
+                <i class="bx bx-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+          <div class="certificates__viewport">
+            <div class="certificates__grid">
+            <a href="https://www.udemy.com/certificate/UC-a42e9a8b-a781-47bc-89a6-cbecb4f28b44/" target="_blank" class="certificate__card">
+              <div class="certificate__icon"><i class="bx bx-award"></i></div>
+              <div class="certificate__body">
+                <p class="certificate__issuer">Udemy</p>
+                <h4 class="certificate__name">ReactJs - The Complete ReactJs Course For Beginners</h4>
+                <div class="certificate__meta">
+                  <span>React</span>
+                  <span>May 2026</span>
+                </div>
+              </div>
+              <i class="bx bx-link-external certificate__link-icon"></i>
+            </a>
+
+            <a href="https://www.coursera.org/account/accomplishments/records/CXKG28PY8UZD" target="_blank" class="certificate__card">
+              <div class="certificate__icon"><i class="bx bx-cloud"></i></div>
+              <div class="certificate__body">
+                <p class="certificate__issuer">IBM / Coursera</p>
+                <h4 class="certificate__name">Introduction to Cloud Computing</h4>
+                <div class="certificate__meta">
+                  <span>Cloud Computing</span>
+                  <span>Dec 2025</span>
+                </div>
+              </div>
+              <i class="bx bx-link-external certificate__link-icon"></i>
+            </a>
+
+            <a href="https://www.coursera.org/account/accomplishments/records/50FCMX4LLPI9" target="_blank" class="certificate__card">
+              <div class="certificate__icon"><i class="bx bxl-github"></i></div>
+              <div class="certificate__body">
+                <p class="certificate__issuer">IBM / Coursera</p>
+                <h4 class="certificate__name">Getting Started with Git and GitHub</h4>
+                <div class="certificate__meta">
+                  <span>GitHub</span>
+                  <span>Dec 2025</span>
+                </div>
+              </div>
+              <i class="bx bx-link-external certificate__link-icon"></i>
+            </a>
+
+            <a href="https://www.coursera.org/account/accomplishments/records/AST9PKOXL9KV" target="_blank" class="certificate__card">
+              <div class="certificate__icon"><i class="bx bx-code-alt"></i></div>
+              <div class="certificate__body">
+                <p class="certificate__issuer">IBM / Coursera</p>
+                <h4 class="certificate__name">Introduction to HTML, CSS, &amp; JavaScript</h4>
+                <div class="certificate__meta">
+                  <span>Web Development</span>
+                  <span>Dec 2025</span>
+                </div>
+              </div>
+              <i class="bx bx-link-external certificate__link-icon"></i>
+            </a>
+
+            <a href="https://www.udemy.com/certificate/UC-8760e5bc-47ba-408b-860b-7ecda7e3ad5e/" target="_blank" class="certificate__card">
+              <div class="certificate__icon"><i class="bx bxl-javascript"></i></div>
+              <div class="certificate__body">
+                <p class="certificate__issuer">Udemy</p>
+                <h4 class="certificate__name">Complete JavaScript Programming: From Novice to Expert</h4>
+                <div class="certificate__meta">
+                  <span>JavaScript</span>
+                  <span>Nov 2025</span>
+                </div>
+              </div>
+              <i class="bx bx-link-external certificate__link-icon"></i>
+            </a>
+
+            <a href="https://www.udemy.com/certificate/UC-1202890b-c723-4c10-a1e3-380e1f92f227/" target="_blank" class="certificate__card">
+              <div class="certificate__icon"><i class="bx bxl-html5"></i></div>
+              <div class="certificate__body">
+                <p class="certificate__issuer">Udemy</p>
+                <h4 class="certificate__name">Master HTML and CSS: Create Stunning Websites with Confidence</h4>
+                <div class="certificate__meta">
+                  <span>HTML &amp; CSS</span>
+                  <span>Oct 2025</span>
+                </div>
+              </div>
+              <i class="bx bx-link-external certificate__link-icon"></i>
+            </a>
+            </div>
+          </div>
+          <div class="certificates__dots" aria-label="Certificate carousel pagination"></div>
+        </div>
       </div>
     </section>
 
