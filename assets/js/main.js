@@ -41,7 +41,7 @@ window.addEventListener('scroll', scrollActive);
 
 /* ===== TYPING ANIMATION ===== */
 const roles = [
-  'Software Engineer',
+  'Associate Software Engineer',
   'Full-Stack Developer',
   'Software Developer',
   
